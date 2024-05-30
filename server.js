@@ -20,13 +20,25 @@ app.use(cors());
 // Establece el puerto en el que el servidor escuchará las solicitudes
 const port = 3000;
 
+//conexion a postgrets
+const { Pool } = require('pg');
+
+
+const Pool = new Pool({
+    user: 'admin',
+    host: 'dpg-cpaj3elds78s73d2rqcg-a',
+    database: 'dbcreate',
+    password: 'dFZzBOggx1SghjnbeIUBfpPAIL1QU5vC',
+    port: 5432, // Puerto predeterminado de PostgreSQL
+  });
+
 // Crea una conexión a la base de datos MySQL
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'aurora'
-});
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'aurora'
+// });
 
 // Establece la conexión a la base de datos MySQL
 db.connect((err) => {
