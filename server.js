@@ -21,24 +21,24 @@ app.use(cors());
 const port = 3000;
 
 //conexion a postgrets
-const { Pool } = require('pg');
+// const { Pool } = require('pg');
 
 
-const Pool = new Pool({
-    user: 'admin',
-    host: 'dpg-cpaj3elds78s73d2rqcg-a',
-    database: 'dbcreate',
-    password: 'dFZzBOggx1SghjnbeIUBfpPAIL1QU5vC',
-    port: 5432, // Puerto predeterminado de PostgreSQL
-  });
+// const Pool = new Pool({
+//     user: 'admin',
+//     host: 'dpg-cpaj3elds78s73d2rqcg-a',
+//     database: 'dbcreate',
+//     password: 'dFZzBOggx1SghjnbeIUBfpPAIL1QU5vC',
+//     port: 5432, // Puerto predeterminado de PostgreSQL
+//   });
 
-// Crea una conexión a la base de datos MySQL
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '',
-//     database: 'aurora'
-// });
+//  Crea una conexión a la base de datos MySQL
+ const db = mysql.createConnection({
+    host: 'localhost',
+     user: 'root',
+     password: '',
+     database: 'aurora'
+ });
 
 // Establece la conexión a la base de datos MySQL
 db.connect((err) => {
@@ -61,17 +61,17 @@ app.get('/', (req, res) => {
 });
 
 // Define la ruta para la página de inicio de sesión
-app.get('/login', (req, res) => {
+app.get('./login/', (req, res) => {
     res.sendFile(path.join(__dirname, 'login', 'login.html'));
 });
 
 // Define la ruta para la página de registro
-app.get('/register', (req, res) => {
+app.get('./register', (req, res) => {
     res.sendFile(path.join(__dirname, 'register', 'registro.html'));
 });
 
 // Define la ruta para la página del carrito
-app.get('/carrito', (req, res) => {
+app.get('./carrito', (req, res) => {
     res.sendFile(path.join(__dirname, 'carrito.html'));
 });
 
